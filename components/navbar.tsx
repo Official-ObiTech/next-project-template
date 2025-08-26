@@ -6,7 +6,6 @@ import { useTheme } from "next-themes";
 const siteConfig = {
   navItems: [
     { href: "#home", label: "Home" },
-    { href: "#projects", label: "Projects" },
     { href: "#investors", label: "Investors" },
     { href: "#careers", label: "Careers" },
     { href: "#sustainability", label: "Sustainability" },
@@ -14,7 +13,6 @@ const siteConfig = {
   ],
   navMenuItems: [
     { href: "#home", label: "Home" },
-    { href: "#projects", label: "Projects" },
     { href: "#investors", label: "Investors" },
     { href: "#careers", label: "Careers" },
     { href: "#sustainability", label: "Sustainability" },
@@ -63,7 +61,6 @@ const ThemeSwitch = () => {
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
-  const [isSearchFocused, setIsSearchFocused] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -123,24 +120,6 @@ export const Navbar = () => {
 
               {/* Desktop Right Side */}
               <div className="hidden sm:flex items-center space-x-4">
-                {/* Search Bar */}
-                <div className="hidden lg:flex relative">
-                  <div
-                    className={`relative transition-all duration-300 ${isSearchFocused ? "transform scale-105" : ""}`}>
-                    <input
-                      type="search"
-                      placeholder="Search..."
-                      className="w-64 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2.5 pl-10 pr-16 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-violet-400 focus:border-violet-400/50 focus:bg-white/15 transition-all duration-300"
-                      onFocus={() => setIsSearchFocused(true)}
-                      onBlur={() => setIsSearchFocused(false)}
-                    />
-                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-white/60" />
-                    <kbd className="absolute right-3 top-1/2 transform -translate-y-1/2 px-2 py-0.5 text-xs bg-white/20 rounded border border-white/30 text-white/80 font-mono">
-                      ⌘K
-                    </kbd>
-                  </div>
-                </div>
-
                 {/* Social Links */}
                 <div className="flex items-center space-x-2">
                   <a
@@ -178,16 +157,6 @@ export const Navbar = () => {
             isMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
           }`}>
           <div className="px-4 py-6 space-y-4 bg-black/30 backdrop-blur-sm border-t border-white/10">
-            {/* Mobile Search */}
-            <div className="relative">
-              <input
-                type="search"
-                placeholder="Search..."
-                className="w-full bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg px-4 py-3 pl-10 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-violet-400 focus:border-transparent transition-all duration-300"
-              />
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-white/60" />
-            </div>
-
             {/* Mobile Navigation */}
             <div className="space-y-2">
               {siteConfig.navMenuItems.map((item, index) => (
@@ -210,11 +179,11 @@ export const Navbar = () => {
             {/* Mobile Social Links */}
             <div className="flex items-center justify-center space-x-6 pt-4 border-t border-white/10">
               <a
-                href={siteConfig.links.twitter}
+                href={siteConfig.links.mail}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-full bg-white/10 hover:bg-blue-500/20 transition-all duration-300 group">
-                <Twitter className="w-5 h-5 text-blue-400 group-hover:scale-110 transition-transform" />
+                <Mail className="w-5 h-5 text-blue-400 group-hover:scale-110 transition-transform" />
               </a>
             </div>
           </div>

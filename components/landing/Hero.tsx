@@ -10,7 +10,7 @@ const subtitle = (props = {}) =>
   `text-lg md:text-xl text-gray-200 ${props.class || ""}`;
 const buttonStyles = (props = {}) => {
   const baseClasses =
-    "inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105";
+    "inline-flex items-center gap-2 px-32 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105";
   if (props.color === "primary")
     return `${baseClasses} bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl`;
   return `${baseClasses} border-2 border-white/20 hover:border-white/40 text-white backdrop-blur-sm hover:bg-white/10`;
@@ -50,7 +50,7 @@ const Link = ({ children, href, className, isExternal }) => (
 const carouselItems = [
   {
     type: "image",
-    src: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80",
+    src: "https://unsplash.com/s/photos/oil-and-gas-exploration-and-production",
     title: "Make beautiful",
     highlight: "websites",
     subtitle: "regardless of your design experience.",
@@ -199,7 +199,7 @@ export const Hero: React.FC = () => {
           </div>
 
           {/* Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+          <div className="flex px-44 flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <Link
               href={siteConfig.links.explore}
               className={buttonStyles({
@@ -209,11 +209,6 @@ export const Hero: React.FC = () => {
               })}>
               <RocketIcon size={20} />
               Explore
-            </Link>
-            <Link
-              href={siteConfig.links.learnMore}
-              className={buttonStyles({ variant: "bordered", radius: "full" })}>
-              Learn More...
             </Link>
           </div>
         </div>
