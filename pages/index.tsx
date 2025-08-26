@@ -191,12 +191,12 @@ const PlaceholderSection: React.FC<{ id: string; title: string }> = ({
   id,
   title,
 }) => (
-  <SectionWrapper id={id} className="bg-gray-50">
+  <SectionWrapper id={id} className="bg-gray-50 dark:bg-slate-900">
     <div className="text-center">
-      <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+      <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 dark:text-white">
         {title}
       </h2>
-      <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+      <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8 dark:text-gray-400">
         This section is coming soon. Stay tuned for updates!
       </p>
       <div className="w-32 h-32 mx-auto bg-gray-200 rounded-2xl flex items-center justify-center">

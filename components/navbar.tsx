@@ -1,26 +1,28 @@
 import React, { useState, useEffect } from "react";
-import { Search, Menu, Twitter, Sun, Moon } from "lucide-react";
+import { Search, Menu, Twitter, Sun, Moon, Mail } from "lucide-react";
 import { useTheme } from "next-themes";
 
 // Mock the HeroUI components since we don't have access to them
 const siteConfig = {
   navItems: [
-    { href: "/", label: "Home" },
+    { href: "#home", label: "Home" },
+    { href: "#projects", label: "Projects" },
+    { href: "#investors", label: "Investors" },
+    { href: "#careers", label: "Careers" },
+    { href: "#sustainability", label: "Sustainability" },
     { href: "#about", label: "About" },
-    { href: "#services", label: "Services" },
-    { href: "#contact", label: "Contact" },
   ],
   navMenuItems: [
-    { href: "/", label: "Home" },
+    { href: "#home", label: "Home" },
+    { href: "#projects", label: "Projects" },
+    { href: "#investors", label: "Investors" },
+    { href: "#careers", label: "Careers" },
+    { href: "#sustainability", label: "Sustainability" },
     { href: "#about", label: "About" },
-    { href: "#services", label: "Services" },
-    { href: "#contact", label: "Contact" },
     { href: "/logout", label: "Logout" },
   ],
   links: {
-    github: "https://github.com",
-    twitter: "https://twitter.com",
-    docs: "#",
+    mail: "mailto:info@acme.com",
   },
 };
 
@@ -106,7 +108,7 @@ export const Navbar = () => {
               </div>
 
               {/* Desktop Navigation Links */}
-              <div className="hidden lg:flex items-center ml-10 space-x-8">
+              <div className="hidden lg:flex items-center ml-10 space-x-6 text-base">
                 {siteConfig.navItems.map((item, index) => (
                   <a
                     key={item.href}
@@ -142,12 +144,12 @@ export const Navbar = () => {
                 {/* Social Links */}
                 <div className="flex items-center space-x-2">
                   <a
-                    href={siteConfig.links.twitter}
+                    href={siteConfig.links.mail}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-2 rounded-full hover:bg-white/10 transition-all duration-300 group"
-                    aria-label="Twitter">
-                    <Twitter className="w-5 h-5 text-white/70 group-hover:text-blue-400 group-hover:scale-110 transition-all duration-300" />
+                    aria-label="Mail">
+                    <Mail className="w-5 h-5 text-white/70 group-hover:text-blue-400 group-hover:scale-110 transition-all duration-300" />
                   </a>
 
                   <ThemeSwitch />

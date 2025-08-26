@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight, Play, Pause, Circle } from "lucide-react";
-import { GithubIcon } from "@/components/icons";
+import { RocketIcon } from "@/components/icons";
 import { Navbar } from "../navbar";
 
 // Mock the components and config since we don't have access to them
@@ -207,13 +207,13 @@ export const Hero: React.FC = () => {
                 radius: "full",
                 variant: "shadow",
               })}>
+              <RocketIcon size={20} />
               Explore
             </Link>
             <Link
               href={siteConfig.links.learnMore}
               className={buttonStyles({ variant: "bordered", radius: "full" })}>
-              {/* <GithubIcon size={20} /> */}
-              Learn More
+              Learn More...
             </Link>
           </div>
         </div>

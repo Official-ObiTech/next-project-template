@@ -13,13 +13,13 @@ export const GeoFootprint: React.FC<GeoFootprintProps> = ({
   mapImage,
 }) => {
   return (
-    <section id={id} className="scroll-mt-24 md:scroll-mt-28 py-16 md:py-24">
+    <section id={id} className="scroll-mt-24 md:scroll-mt-28 py-16 md:py-24 dark:bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 dark:text-white">
             Global Operations
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto dark:text-gray-400">
             Our operations span across continents, delivering energy solutions
             worldwide
           </p>
