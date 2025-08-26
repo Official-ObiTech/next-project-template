@@ -32,28 +32,28 @@ export const QuickLinksGrid: React.FC<QuickLinksGridProps> = ({
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {links.map((link, index) => (
             <button
               key={index}
               onClick={() => scrollToSection(link.href)}
-              className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+              className="group bg-white dark:bg-slate-800 dark:border-slate-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
               {link.icon && (
                 <div className="mb-4 flex justify-center">
-                  <div className="p-3 bg-blue-50 rounded-xl group-hover:bg-blue-100 transition-colors">
+                  <div className="p-3 dark:bg-slate-700 bg-blue-50 rounded-xl group-hover:bg-blue-100 transition-colors">
                     {link.icon}
                   </div>
                 </div>
               )}
-              <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+              <h3 className="text-xl dark:text-white font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
                 {link.label}
               </h3>
               {link.description && (
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
                   {link.description}
                 </p>
               )}
-              <div className="mt-4 flex items-center justify-center text-blue-600 group-hover:text-blue-700">
+              <div className="mt-4 flex items-center justify-center text-blue-600 group-hover:text-blue-700 dark:text-blue-300">
                 <span className="text-sm font-medium">Learn More</span>
                 <svg
                   className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"

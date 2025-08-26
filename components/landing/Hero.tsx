@@ -223,7 +223,7 @@ export const Hero: React.FC = () => {
         <div className="max-w-7xl mx-auto space-y-8">
           {/* Title */}
           <div className="space-y-2 animate-fadeInUp">
-            <div className="inline-block">
+            <div className="inline-block text-2xl md:text-xl font-bold">
               <span className={title()}>{currentItem.title}&nbsp;</span>
               <span className={title({ color: "violet" })}>
                 {currentItem.highlight}&nbsp;
