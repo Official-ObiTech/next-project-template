@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Search, Menu, Twitter, Sun, Moon, Mail } from "lucide-react";
 import { useTheme } from "next-themes";
+import Logo from "./custom/Logo";
 
 // Mock the HeroUI components since we don't have access to them
 const siteConfig = {
@@ -23,12 +24,6 @@ const siteConfig = {
     mail: "mailto:info@acme.com",
   },
 };
-
-const Logo = () => (
-  <div className="w-8 h-8 bg-gradient-to-br from-violet-500 to-blue-500 rounded-lg flex items-center justify-center">
-    <span className="text-white font-bold text-sm">A</span>
-  </div>
-);
 
 const ThemeSwitch = () => {
   const { resolvedTheme, setTheme } = useTheme();
@@ -61,6 +56,8 @@ const ThemeSwitch = () => {
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme === "dark";
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -73,17 +70,37 @@ export const Navbar = () => {
     const scrollOpacity = Math.min(0.95, 0.3 + scrollY / 300);
     const isScrolled = scrollY > 50;
 
+    // Theme-aware surfaces
+    const background = (() => {
+      if (isScrolled) {
+        return isDark
+          ? `rgba(0, 0, 0, ${scrollOpacity})`
+          : `rgba(255, 255, 255, ${scrollOpacity})`;
+      }
+      return isDark
+        ? `linear-gradient(135deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15))`
+        : `linear-gradient(135deg, rgba(255,255,255,0.65), rgba(255,255,255,0.35))`;
+    })();
+
+    const borderBottom = isDark
+      ? `1px solid rgba(255,255,255,${isScrolled ? 0.18 : 0.12})`
+      : `1px solid rgba(0,0,0,${isScrolled ? 0.1 : 0.06})`;
+
+    const boxShadow = isDark
+      ? isScrolled
+        ? "0 8px 32px rgba(0, 0, 0, 0.45)"
+        : "0 4px 16px rgba(0, 0, 0, 0.25)"
+      : isScrolled
+        ? "0 8px 32px rgba(0, 0, 0, 0.12)"
+        : "0 4px 16px rgba(0, 0, 0, 0.08)";
+
     return {
       backdropFilter: "blur(16px)",
       WebkitBackdropFilter: "blur(16px)", // Safari support
-      background: isScrolled
-        ? `rgba(0, 0, 0, ${scrollOpacity})`
-        : `linear-gradient(135deg, rgba(0,0,0,0.1), rgba(255,255,255,0.05))`,
-      borderBottom: `1px solid rgba(255,255,255,${isScrolled ? 0.2 : 0.1})`,
-      boxShadow: isScrolled
-        ? "0 8px 32px rgba(0, 0, 0, 0.3)"
-        : "0 4px 16px rgba(0, 0, 0, 0.1)",
-    };
+      background,
+      borderBottom,
+      boxShadow,
+    } as const;
   };
 
   return (
@@ -98,9 +115,6 @@ export const Navbar = () => {
               <div className="flex-shrink-0">
                 <a href="/" className="flex items-center gap-3 group">
                   <Logo />
-                  <span className="font-bold text-white text-xl group-hover:text-violet-300 transition-all duration-300 transform group-hover:scale-105">
-                    ACME
-                  </span>
                 </a>
               </div>
 
@@ -110,10 +124,10 @@ export const Navbar = () => {
                   <a
                     key={item.href}
                     href={item.href}
-                    className="relative text-white/90 hover:text-white font-medium transition-all duration-300 group py-2">
+                    className={`relative ${isDark ? "text-white/90 hover:text-white" : "text-black/80 hover:text-black"} font-medium transition-all duration-300 group py-2`}>
                     <span className="relative z-10">{item.label}</span>
                     <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-violet-400 to-blue-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-                    <span className="absolute inset-0 bg-white/5 rounded-lg transform scale-0 group-hover:scale-100 transition-transform duration-200"></span>
+                    <span className={`absolute inset-0 rounded-lg transform scale-0 group-hover:scale-100 transition-transform duration-200 ${isDark ? "bg-white/5" : "bg-black/5"}`}></span>
                   </a>
                 ))}
               </div>
@@ -126,9 +140,9 @@ export const Navbar = () => {
                     href={siteConfig.links.mail}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 rounded-full hover:bg-white/10 transition-all duration-300 group"
+                    className={`p-2 rounded-full transition-all duration-300 group ${isDark ? "hover:bg-white/10" : "hover:bg-black/10"}`}
                     aria-label="Mail">
-                    <Mail className="w-5 h-5 text-white/70 group-hover:text-blue-400 group-hover:scale-110 transition-all duration-300" />
+                    <Mail className={`w-5 h-5 ${isDark ? "text-white/70" : "text-black/60"} group-hover:text-blue-500 group-hover:scale-110 transition-all duration-300`} />
                   </a>
 
                   <ThemeSwitch />
@@ -141,10 +155,10 @@ export const Navbar = () => {
               <ThemeSwitch />
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="p-2 rounded-full hover:bg-white/10 transition-all duration-300 group"
+                className={`p-2 rounded-full transition-all duration-300 group ${isDark ? "hover:bg-white/10" : "hover:bg-black/10"}`}
                 aria-label="Toggle menu">
                 <Menu
-                  className={`w-5 h-5 text-white transform transition-transform duration-300 ${isMenuOpen ? "rotate-90" : ""}`}
+                  className={`w-5 h-5 ${isDark ? "text-white" : "text-black"} transform transition-transform duration-300 ${isMenuOpen ? "rotate-90" : ""}`}
                 />
               </button>
             </div>
@@ -167,8 +181,10 @@ export const Navbar = () => {
                     index === siteConfig.navMenuItems.length - 1
                       ? "text-red-400 hover:text-red-300 hover:bg-red-500/10"
                       : index === 2
-                        ? "text-violet-400 hover:text-violet-300 hover:bg-violet-500/10"
-                        : "text-white hover:text-violet-300 hover:bg-white/10"
+                        ? "text-violet-600 hover:text-violet-700 hover:bg-violet-500/10"
+                        : isDark
+                          ? "text-white hover:text-violet-300 hover:bg-white/10"
+                          : "text-black hover:text-violet-700 hover:bg-black/5"
                   }`}
                   onClick={() => setIsMenuOpen(false)}>
                   {item.label}

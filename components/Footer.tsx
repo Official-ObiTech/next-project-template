@@ -1,4 +1,5 @@
 import React from "react";
+import Logo from "./custom/Logo";
 
 interface FooterColumn {
   title: string;
@@ -17,10 +18,7 @@ export const Footer: React.FC<FooterProps> = ({ columns }) => {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">OG</span>
-              </div>
-              <span className="font-bold text-xl">PetroTech</span>
+              <Logo />
             </div>
             <p className="text-gray-400 mb-4 leading-relaxed">
               Leading the future of energy with innovative solutions and

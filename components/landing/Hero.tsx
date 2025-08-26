@@ -1,7 +1,33 @@
 import React, { useState, useEffect, useRef } from "react";
+import Image, { StaticImageData } from "next/image";
 import { ChevronLeft, ChevronRight, Play, Pause, Circle } from "lucide-react";
 import { RocketIcon } from "@/components/icons";
 import { Navbar } from "../navbar";
+import oilHouse from "@/assets/images/oil-house.jpeg";
+import oilLine from "@/assets/images/oil-line.jpeg";
+
+type ImageSlide = {
+  type: "image";
+  src: StaticImageData;
+  title: string;
+  highlight: string;
+  subtitle: string;
+  description: string;
+  overlay: string;
+};
+
+type VideoSlide = {
+  type: "video";
+  src: string; // video URL
+  poster: string;
+  title: string;
+  highlight: string;
+  subtitle: string;
+  description: string;
+  overlay: string;
+};
+
+type CarouselItem = ImageSlide | VideoSlide;
 
 // Mock the components and config since we don't have access to them
 const title = (props = {}) =>
@@ -47,10 +73,10 @@ const Link = ({ children, href, className, isExternal }) => (
   </a>
 );
 
-const carouselItems = [
+const carouselItems: CarouselItem[] = [
   {
     type: "image",
-    src: "https://unsplash.com/s/photos/oil-and-gas-exploration-and-production",
+    src: oilHouse,
     title: "Make beautiful",
     highlight: "websites",
     subtitle: "regardless of your design experience.",
@@ -60,12 +86,13 @@ const carouselItems = [
   },
   {
     type: "image",
-    src: "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
+    src: oilLine,
     title: "Create stunning",
     highlight: "interfaces",
     subtitle: "with powerful components.",
     description: "Design systems that scale with your business.",
-    overlay: "bg-gradient-to-r from-blue-900/80 via-cyan-900/60 to-transparent",
+    overlay:
+      "bg-gradient-to-r from-purple-900/80 via-blue-900/60 to-transparent",
   },
   {
     type: "video",
@@ -158,11 +185,16 @@ export const Hero: React.FC = () => {
                 : "opacity-0 scale-110"
             }`}>
             {item.type === "image" ? (
-              <img
-                src={item.src}
-                alt={`Slide ${index + 1}`}
-                className="w-full h-full object-cover"
-              />
+              <div className="relative w-full h-full">
+                <Image
+                  src={item.src}
+                  alt={`Slide ${index + 1}`}
+                  fill
+                  sizes="100vw"
+                  priority={index === 0}
+                  className="object-cover"
+                />
+              </div>
             ) : (
               <div className="relative w-full h-full">
                 <video

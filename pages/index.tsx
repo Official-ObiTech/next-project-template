@@ -30,6 +30,7 @@ import { LeadershipGrid } from "@/components/landing/LeadershipGrid";
 import { Investors } from "@/components/landing/Investors";
 
 import React from "react";
+import Partners from "@/components/landing/Partners";
 
 // Sample data
 
@@ -239,6 +240,8 @@ export default function OilGasLandingPage() {
       <div id="home">
         <Hero />
       </div>
+
+      <Partners />
 
       {/* Quick Links */}
       <QuickLinksGrid id="explore" links={quickLinks} />
