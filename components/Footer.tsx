@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "./custom/Logo";
+import Image from "next/image";
 
 interface FooterColumn {
   title: string;
@@ -18,7 +18,7 @@ export const Footer: React.FC<FooterProps> = ({ columns }) => {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-2 mb-4">
-              <Logo />
+              <Image src="/angalawhite.svg" alt="Logo" width={100} height={100} />
             </div>
             <p className="text-gray-400 mb-4 leading-relaxed">
               Leading the future of energy with innovative solutions and

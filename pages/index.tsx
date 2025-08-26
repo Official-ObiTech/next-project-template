@@ -31,6 +31,11 @@ import { Investors } from "@/components/landing/Investors";
 
 import React from "react";
 import Partners from "@/components/landing/Partners";
+import { Image } from "@nextui-org/react";
+
+const mapImage = {
+  src: "https://my.spline.design/holographicearthwithdynamiclines-k0kwHZD6l21fXjKDzAFA6Y2N/",
+};
 
 // Sample data
 
@@ -201,19 +206,14 @@ const PlaceholderSection: React.FC<{ id: string; title: string }> = ({
       <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8 dark:text-gray-400">
         This section is coming soon. Stay tuned for updates!
       </p>
-      <div className="w-32 h-32 mx-auto bg-gray-200 rounded-2xl flex items-center justify-center">
-        <svg
-          className="w-16 h-16 text-gray-400"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"
-          />
-        </svg>
+      <div className="h-64 mx-auto rounded-2xl flex items-center justify-center">
+        <Image
+          src="/coming-soon.svg"
+          alt="Logo"
+          width={100}
+          height={100}
+          className="object-contain h-full w-full"
+        />
       </div>
     </div>
   </SectionWrapper>
@@ -276,7 +276,7 @@ export default function OilGasLandingPage() {
       <LeadershipGrid people={leadership} />
 
       {/* Geographic Footprint */}
-      <GeoFootprint regions={regions} />
+      <GeoFootprint regions={regions} mapImage={mapImage} />
 
       {/* Footer */}
       <Footer columns={footerColumns} />

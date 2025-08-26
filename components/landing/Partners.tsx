@@ -58,30 +58,30 @@ const Partners = () => {
           pointer-events: none;
         }
 
-        .carousel::before {
-          left: 0;
-          background: linear-gradient(
-            to right,
-            rgba(0, 0, 0, 0.35),
-            transparent
-          );
-        }
+        // .carousel::before {
+        //   left: 0;
+        //   background: linear-gradient(
+        //     to right,
+        //     rgba(0, 0, 0, 0.35),
+        //     transparent
+        //   );
+        // }
 
-        .carousel::after {
-          right: 0;
-          background: linear-gradient(
-            to left,
-            rgba(0, 0, 0, 0.35),
-            transparent
-          );
-        }
+        // .carousel::after {
+        //   right: 0;
+        //   background: linear-gradient(
+        //     to left,
+        //     rgba(0, 0, 0, 0.35),
+        //     transparent
+        //   );
+        // }
       `}</style>
 
       <h2 className="lg:text-3xl md:text-2xl text-xl font-bold text-center mb-6">
         Some of our financial partners
       </h2>
 
-      <div className="carousel">
+      <div className="carousel max-w-7xl mx-auto">
         {/* Track duplicated for seamless loop */}
         <div className="partnerTrack">
           {/* Sequence A */}

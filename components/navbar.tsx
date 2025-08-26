@@ -44,10 +44,10 @@ const ThemeSwitch = () => {
         isDark ? (
           <Sun className="w-5 h-5 text-white/70 group-hover:text-yellow-400 transition-colors" />
         ) : (
-          <Moon className="w-5 h-5 text-white/70 group-hover:text-blue-400 transition-colors" />
+          <Moon className="w-5 h-5 text-black/70 group-hover:text-blue-400 transition-colors" />
         )
       ) : (
-        <Moon className="w-5 h-5 text-white/70" />
+        <Moon className="w-5 h-5 text-black/70" />
       )}
     </button>
   );
@@ -127,7 +127,8 @@ export const Navbar = () => {
                     className={`relative ${isDark ? "text-white/90 hover:text-white" : "text-black/80 hover:text-black"} font-medium transition-all duration-300 group py-2`}>
                     <span className="relative z-10">{item.label}</span>
                     <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-violet-400 to-blue-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-                    <span className={`absolute inset-0 rounded-lg transform scale-0 group-hover:scale-100 transition-transform duration-200 ${isDark ? "bg-white/5" : "bg-black/5"}`}></span>
+                    <span
+                      className={`absolute inset-0 rounded-lg transform scale-0 group-hover:scale-100 transition-transform duration-200 ${isDark ? "bg-white/5" : "bg-black/5"}`}></span>
                   </a>
                 ))}
               </div>
@@ -142,7 +143,9 @@ export const Navbar = () => {
                     rel="noopener noreferrer"
                     className={`p-2 rounded-full transition-all duration-300 group ${isDark ? "hover:bg-white/10" : "hover:bg-black/10"}`}
                     aria-label="Mail">
-                    <Mail className={`w-5 h-5 ${isDark ? "text-white/70" : "text-black/60"} group-hover:text-blue-500 group-hover:scale-110 transition-all duration-300`} />
+                    <Mail
+                      className={`w-5 h-5 ${isDark ? "text-white/70" : "text-black/60"} group-hover:text-blue-500 group-hover:scale-110 transition-all duration-300`}
+                    />
                   </a>
 
                   <ThemeSwitch />

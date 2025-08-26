@@ -13,7 +13,9 @@ export const GeoFootprint: React.FC<GeoFootprintProps> = ({
   mapImage,
 }) => {
   return (
-    <section id={id} className="scroll-mt-24 md:scroll-mt-28 py-16 md:py-24 dark:bg-slate-900">
+    <section
+      id={id}
+      className="scroll-mt-24 md:scroll-mt-28 py-16 md:py-24 dark:bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 dark:text-white">
@@ -28,13 +30,16 @@ export const GeoFootprint: React.FC<GeoFootprintProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Map */}
           <div className="order-2 lg:order-1">
-            <div className="bg-gray-100 rounded-2xl overflow-hidden shadow-lg aspect-video relative">
+            <div className="h-[35rem] w-full bg-gray-100 rounded-2xl overflow-hidden shadow-lg aspect-video relative">
               {mapImage && typeof mapImage === "object" && "src" in mapImage ? (
-                <img
-                  src={mapImage.src}
-                  alt={mapImage.alt}
-                  className="w-full h-full object-cover"
-                />
+                <>
+                  <div className="w-44 h-12 bg-slate-950/90 absolute -bottom-4 -right-20 transform -translate-x-1/2 -translate-y-1/2" />
+                  <iframe
+                    src={mapImage.src}
+                    frameBorder="0"
+                    width="100%"
+                    height="100%"></iframe>
+                </>
               ) : mapImage ? (
                 mapImage
               ) : (

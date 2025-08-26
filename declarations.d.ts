@@ -23,3 +23,9 @@ declare module "*.pne" {
   const value: any;
   export default value;
 }
+
+declare module "@splinetool/react-spline" {
+  import React from "react";
+  const Spline: React.ComponentType<{ scene: string }>;
+  export default Spline;
+}

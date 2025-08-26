@@ -77,34 +77,39 @@ const carouselItems: CarouselItem[] = [
   {
     type: "image",
     src: oilHouse,
-    title: "Make beautiful",
-    highlight: "websites",
-    subtitle: "regardless of your design experience.",
-    description: "Beautiful, fast and modern React UI library.",
+    title: "Driving energy security",
+    highlight: "through responsible oil and gas exploration",
+    subtitle:
+      "delivering sustainable value to communities and investors worldwide.",
+    description:
+      "We are committed to ensuring energy stability while creating long-term benefits for stakeholders and local communities.",
     overlay:
-      "bg-gradient-to-r from-purple-900/80 via-blue-900/60 to-transparent",
+      "bg-gradient-to-r from-purple-900/50 via-blue-900/40 to-transparent",
   },
   {
     type: "image",
     src: oilLine,
-    title: "Create stunning",
-    highlight: "interfaces",
-    subtitle: "with powerful components.",
-    description: "Design systems that scale with your business.",
+    title: "Innovating in production",
+    highlight: "offshore and onshore",
+    subtitle: "with advanced technologies that ensure safety and efficiency.",
+    description:
+      "We leverage cutting-edge solutions to achieve sustainable operations while safeguarding the environment for future generations.",
     overlay:
-      "bg-gradient-to-r from-purple-900/80 via-blue-900/60 to-transparent",
+      "bg-gradient-to-r from-purple-900/50 via-blue-900/40 to-transparent",
   },
   {
     type: "video",
     src: "https://player.vimeo.com/external/371433846.sd.mp4?s=236da2f3c0fd273d2c6d9a064f3ae35579b2bbdf&profile_id=139&oauth2_token_id=57447761",
     poster:
       "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2061&q=80",
-    title: "Experience the",
-    highlight: "future",
-    subtitle: "of web development.",
-    description: "Next-generation tools for modern developers.",
+    title: "Empowering economies",
+    highlight: "by responsibly harnessing natural resources",
+    subtitle:
+      "while prioritizing people, partnerships, and sustainable development.",
+    description:
+      "Our mission is to drive economic growth through responsible resource management, ensuring lasting prosperity for generations to come.",
     overlay:
-      "bg-gradient-to-r from-emerald-900/80 via-teal-900/60 to-transparent",
+      "bg-gradient-to-r from-emerald-900/50 via-teal-900/40 to-transparent",
   },
 ];
 
@@ -215,7 +220,7 @@ export const Hero: React.FC = () => {
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 text-center">
-        <div className="max-w-4xl mx-auto space-y-8">
+        <div className="max-w-7xl mx-auto space-y-8">
           {/* Title */}
           <div className="space-y-2 animate-fadeInUp">
             <div className="inline-block">
