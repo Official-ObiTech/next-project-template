@@ -32,11 +32,11 @@ export const AboutOverview: React.FC<AboutOverviewProps> = ({
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           {/* Mission */}
-          <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+          <div className="bg-gray-100 dark:bg-slate-800 dark:border-slate-700 rounded-2xl p-8 shadow-lg border border-gray-100">
             <div className="flex items-center mb-4">
-              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mr-4">
+              <div className="w-12 h-12 bg-blue-100 border dark:bg-slate-800 dark:border-slate-700 rounded-xl flex items-center justify-center mr-4">
                 <svg
-                  className="w-6 h-6 text-blue-600"
+                  className="w-6 h-6 text-blue-600 dark:text-blue-400"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24">
@@ -48,17 +48,21 @@ export const AboutOverview: React.FC<AboutOverviewProps> = ({
                   />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900">Our Mission</h3>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                Our Mission
+              </h3>
             </div>
-            <p className="text-gray-600 leading-relaxed">{mission}</p>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+              {mission}
+            </p>
           </div>
 
           {/* Vision */}
-          <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+          <div className="bg-gray-100 dark:bg-slate-800 dark:border-slate-700 rounded-2xl p-8 shadow-lg border border-gray-100">
             <div className="flex items-center mb-4">
-              <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mr-4">
+              <div className="w-12 h-12 bg-green-100 border dark:bg-slate-800 dark:border-slate-700 rounded-xl flex items-center justify-center mr-4">
                 <svg
-                  className="w-6 h-6 text-green-600"
+                  className="w-6 h-6 text-green-600 dark:text-green-400"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24">
@@ -76,39 +80,47 @@ export const AboutOverview: React.FC<AboutOverviewProps> = ({
                   />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900">Our Vision</h3>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                Our Vision
+              </h3>
             </div>
-            <p className="text-gray-600 leading-relaxed">{vision}</p>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+              {vision}
+            </p>
           </div>
         </div>
 
         {/* Values */}
-        <div className="bg-gray-50 rounded-2xl p-8">
-          <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">
+        <div className="bg-gray-100 dark:bg-slate-800 rounded-2xl p-8">
+          <h3 className="text-2xl font-bold text-gray-900 dark:text-white text-center mb-8">
             Our Core Values
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {values.map((value, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-6 text-center shadow-sm border border-gray-100">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-blue-600">
+                className="bg-white dark:bg-slate-800 dark:border-slate-700 rounded-xl p-6 text-center shadow-sm border border-gray-100">
+                <div className="w-16 h-16 bg-blue-100 dark:bg-slate-800 dark:border-slate-700 dark:border rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">
                     {index + 1}
                   </span>
                 </div>
-                <p className="text-gray-700 font-medium">{value}</p>
+                <p className="text-gray-700 dark:text-gray-400 font-medium">
+                  {value}
+                </p>
               </div>
             ))}
           </div>
         </div>
 
         {history && (
-          <div className="mt-16 bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+          <div className="mt-16 bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-lg border border-gray-100 dark:border-gray-800">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
               Our History
             </h3>
-            <p className="text-gray-600 leading-relaxed text-lg">{history}</p>
+            <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-base">
+              {history}
+            </p>
           </div>
         )}
       </div>

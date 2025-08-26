@@ -23,11 +23,12 @@ import { GeoFootprint } from "@/components/custom/GeoFootprint";
 import { MetricsStrip } from "@/components/custom/MetricsStrip";
 import { QuickLinksGrid } from "@/components/custom/QuickLinksGrid";
 import { SectionWrapper } from "@/components/custom/SectionWrapper";
-import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/Footer";
 import { AboutOverview } from "@/components/landing/AboutOverview";
 import { Hero } from "@/components/landing/Hero";
 import { LeadershipGrid } from "@/components/landing/LeadershipGrid";
+import { Investors } from "@/components/landing/Investors";
+
 import React from "react";
 
 // Sample data
@@ -247,7 +248,8 @@ export default function OilGasLandingPage() {
 
       {/* Placeholder Sections */}
       <PlaceholderSection id="projects" title="Our Projects" />
-      <PlaceholderSection id="investors" title="Investor Relations" />
+      {/* <PlaceholderSection id="investors" title="Investor Relations" /> */}
+      <Investors id="investors" />
       <PlaceholderSection id="careers" title="Careers" />
       <PlaceholderSection id="sustainability" title="Sustainability" />
 
